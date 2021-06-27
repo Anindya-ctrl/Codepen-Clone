@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import CodeEditor from './CodeEditor';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 function App() {
-    const [ html, setHtml ] = useState('');
-    const [ css, setCss ] = useState('');
-    const [ javascript, setJavascript ] = useState('');
+    const [ html, setHtml ] = useLocalStorage('html', `<!-- Markup is the core! -->\n\n<h1>Hello World!</h1>\n<p>Try coding something!</p>\n`);
+    const [ css, setCss ] = useLocalStorage('css', `/* Want it to look more gorgeous? */\n\nbody {\n  display: grid;\n  place-items: center;\n}\n`);
+    const [ javascript, setJavascript ] = useLocalStorage('js', `// Make your website functional!\n\ndocument.addEventListener('click', () => {\n  console.log('Clicked!');\n});\n`);
     const [ sourceDoc, setSourceDoc ] = useState('');
 
     useEffect(() => {
@@ -18,7 +19,7 @@ function App() {
             `);
 
         return () => clearTimeout(timeout);
-        }, 300);
+        }, 500);
     }, [ html, css, javascript ]);
 
     return (
