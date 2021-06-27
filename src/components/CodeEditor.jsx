@@ -11,8 +11,10 @@ function CodeEditor({ value, language, editorTitle, onChange }) {
 
     return (
         <div className="editor-container">
-            <div className="editor-title">{ editorTitle }</div>
-            <button>O/C</button>
+            <div className="editor-head">
+                { editorTitle }
+                <button>O/C</button>
+            </div>
 
             <ControlledEditor
                 value={ value }
@@ -23,7 +25,6 @@ function CodeEditor({ value, language, editorTitle, onChange }) {
                     theme: 'material',
                     lineNumbers: true,
                     lineWrapping: true,
-                    lineSeparator:true,
                 }}
             />
         </div>

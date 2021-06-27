@@ -1,0 +1,48 @@
+:root {
+    --editor-background: hsl(225, 6%, 25%);
+    --editor-title-background: hsl(225, 6%, 13%);
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pen {
+    height: 50vh;
+    display: flex;
+}
+
+.pen-top {
+    background-color: var(--editor-background);
+}
+
+.editor-container {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-direction: column;
+    padding: 0.5rem;
+    background: var(--editor-background);
+}
+
+.editor-head {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--editor-title-background);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.code-mirror-wrapper {
+    flex-grow: 1;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.CodeMirror {
+    height: 100% !important;
+}
