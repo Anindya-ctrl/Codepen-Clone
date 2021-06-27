@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/mode/xml/xml';
@@ -7,13 +7,17 @@ import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
 function CodeEditor({ value, language, editorTitle, onChange }) {
+    const [ editorOpen, setEditorOpen ] = useState(true);
+
     const handleChange = (editor, data, value) => onChange(value);
 
     return (
-        <div className="editor-container">
+        <div className={ `editor-container ${ !editorOpen && 'collapsed-editor' }` }>
             <div className="editor-head">
                 { editorTitle }
-                <button>O/C</button>
+                <button
+                    onClick={ () => setEditorOpen(preVal => !preVal) }
+                >O/C</button>
             </div>
 
             <ControlledEditor

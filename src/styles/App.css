@@ -43,6 +43,14 @@ body {
     overflow: hidden;
 }
 
+.collapsed-editor {
+    flex-grow: 0;
+}
+
 .CodeMirror {
     height: 100% !important;
+}
+
+.collapsed-editor .CodeMirror-scroll {
+    position: absolute;
 }
